@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 1234
+
+zuul:
+  prefix: /api
+  routes:
+    movie-catalog-service: /movie-ratings/**
+  ignored-services: movie-info-service, ratings-data-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
